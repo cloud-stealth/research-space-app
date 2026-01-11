@@ -2,11 +2,11 @@
 
 **Modern Full-Stack File Management Application with S3-Compatible Storage**
 
-[![React](https://img.shields.io/badge/React-19.2-61DAFB.svg)](https://reactjs.org/)
+[![React](https://img.shields.io/badge/React-19.2.3-61DAFB.svg)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express-4.21-lightgrey.svg)](https://expressjs.com/)
-[![Prisma](https://img.shields.io/badge/Prisma-6.16-2D3748.svg)](https://www.prisma.io/)
+[![Prisma](https://img.shields.io/badge/Prisma-6.19-2D3748.svg)](https://www.prisma.io/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
@@ -37,6 +37,7 @@
 **Research Space** is a production-ready, full-stack file management application designed for secure cloud storage operations. It provides a modern, Google Drive-like interface with robust backend APIs supporting multiple S3-compatible storage providers including AWS S3, Cloudflare R2, and MinIO.
 
 Built with cutting-edge technologies, Research Space emphasizes:
+
 - 🎯 **Type Safety**: Full TypeScript coverage across frontend and backend
 - ⚡ **Performance**: Optimized with code splitting, lazy loading, and efficient state management
 - 🔐 **Security**: AES-256-GCM credential encryption, rate limiting, and CORS protection
@@ -48,6 +49,7 @@ Built with cutting-edge technologies, Research Space emphasizes:
 ## Key Features
 
 ### 🗂️ **File Management**
+
 - Drag-and-drop file/folder operations with @dnd-kit
 - Multi-select with shift-click range selection
 - Nested folder navigation with breadcrumb trails
@@ -57,6 +59,7 @@ Built with cutting-edge technologies, Research Space emphasizes:
 - Bulk operations (move, delete)
 
 ### ☁️ **Storage Integration**
+
 - Multi-provider S3 support (AWS S3, Cloudflare R2, MinIO)
 - Presigned URL uploads (direct-to-S3, no backend bandwidth)
 - Presigned download URLs with time-limited access
@@ -65,6 +68,7 @@ Built with cutting-edge technologies, Research Space emphasizes:
 - Encrypted credential storage
 
 ### 📊 **User Experience**
+
 - Real-time upload progress tracking
 - Library statistics dashboard
 - Dark/light theme support with system preference detection
@@ -73,6 +77,7 @@ Built with cutting-edge technologies, Research Space emphasizes:
 - Keyboard shortcuts for power users
 
 ### 🔒 **Security & Performance**
+
 - JWT authentication (planned)
 - Role-based access control (planned)
 - Rate limiting (100 requests/15min)
@@ -89,15 +94,15 @@ Built with cutting-edge technologies, Research Space emphasizes:
 
 | Category | Technology | Version | Purpose |
 |----------|-----------|---------|---------|
-| **Framework** | React | 19.2.0 | UI library with concurrent features |
+| **Framework** | React | 19.2.3 | UI library with concurrent features |
 | **Language** | TypeScript | 5.9.3 | Type-safe development |
-| **Build Tool** | Vite | 7.1.9 | Lightning-fast HMR and bundling |
+| **Build Tool** | Vite | 7.3.1 | Lightning-fast HMR and bundling |
 | **Styling** | Tailwind CSS | 4.1.14 | Utility-first CSS framework |
 | **UI Components** | Shadcn/UI | Latest | Accessible component library |
-| **State Management** | Zustand | 5.0.8 | Lightweight state management |
-| **Routing** | React Router | 7.9.3 | Client-side routing with lazy loading |
+| **State Management** | Zustand | 5.0.9 | Lightweight state management |
+| **Routing** | React Router | 7.12.0 | Client-side routing with lazy loading |
 | **Drag & Drop** | @dnd-kit | 6.3.1+ | Accessible drag-and-drop toolkit |
-| **Icons** | Lucide React | 0.544.0 | Beautiful icon library |
+| **Icons** | Lucide React | 0.562.0 | Beautiful icon library |
 | **Notifications** | Sonner | 2.0.7 | Toast notifications |
 | **Charts** | Recharts | 3.2.1 | Data visualization |
 
@@ -108,13 +113,13 @@ Built with cutting-edge technologies, Research Space emphasizes:
 | **Runtime** | Node.js | 18+ | JavaScript runtime |
 | **Framework** | Express.js | 4.21.2 | Web application framework |
 | **Language** | TypeScript | 5.7.2 | Type-safe backend development |
-| **ORM** | Prisma | 6.16.3 | Type-safe database client |
+| **ORM** | Prisma | 6.19.0 | Type-safe database client |
 | **Database** | SQLite/PostgreSQL | - | Development/Production databases |
-| **Storage SDK** | AWS SDK v3 | 3.901.0 | S3-compatible storage operations |
-| **Security** | Helmet | 8.0.0 | Security middleware |
+| **Storage SDK** | AWS SDK v3 | 3.966.0 | S3-compatible storage operations |
+| **Security** | Helmet | 8.1.0 | Security middleware |
 | **Validation** | Joi + Zod | 17.13.3 + 3.25.76 | Input validation |
 | **Authentication** | JWT + bcrypt | Latest | Token-based auth (planned) |
-| **Logging** | Winston | 3.17.0 | Application logging |
+| **Logging** | Winston | 3.19.0 | Application logging |
 
 ---
 
@@ -141,13 +146,13 @@ git clone https://github.com/PRATS-gits/research-vite-app.git
 cd research-vite-app
 ```
 
-2. **Install frontend dependencies**
+1. **Install frontend dependencies**
 
 ```bash
 npm install
 ```
 
-3. **Configure environment** (optional)
+1. **Configure environment** (optional)
 
 Create a `.env` file in the root directory:
 
@@ -155,7 +160,7 @@ Create a `.env` file in the root directory:
 VITE_API_BASE_URL=http://localhost:3001
 ```
 
-4. **Start development server**
+1. **Start development server**
 
 ```bash
 npm run dev
@@ -171,13 +176,13 @@ The frontend will be available at `http://localhost:5173`
 cd backend
 ```
 
-2. **Install backend dependencies**
+1. **Install backend dependencies**
 
 ```bash
 npm install
 ```
 
-3. **Configure environment**
+1. **Configure environment**
 
 Create a `.env` file in the backend directory:
 
@@ -206,7 +211,7 @@ CORS_ORIGIN="http://localhost:5173"
 # Credentials are encrypted and stored in database
 ```
 
-4. **Setup database**
+1. **Setup database**
 
 ```bash
 # Generate Prisma Client
@@ -219,7 +224,7 @@ npx prisma migrate dev
 npm run db:seed
 ```
 
-5. **Start backend server**
+1. **Start backend server**
 
 ```bash
 npm run dev
@@ -248,6 +253,7 @@ npm run dev:all
 ```
 
 **Access the application:**
+
 - Frontend: `http://localhost:5173`
 - Backend API: `http://localhost:3001`
 - Backend Health: `http://localhost:3001/health`
@@ -363,25 +369,30 @@ For complete file tree with descriptions, see [`PROJECT_OVERVIEW.md`](PROJECT_OV
 ## Documentation Gateway
 
 ### **Getting Started**
+
 - 📖 [Project Overview](PROJECT_OVERVIEW.md) - Comprehensive architecture and file structure
 - 🚀 [Quick Start Guide](docs/tasks/QUICK_START.md) - Fast setup instructions
 - 📋 [API Documentation](docs/guide/API_DOCUMENTATION.md) - High-level API overview
 
 ### **Backend Documentation**
+
 - 📘 [Backend README](backend/README.md) - Complete backend guide with examples
 - 🔌 [API Reference](backend/docs/guide/API_DOCUMENTATION.md) - Detailed endpoint documentation
 - 🚀 [Deployment Guide](backend/docs/guide/DEPLOYMENT_GUIDE.md) - Railway and production deployment
 - 🔧 [MinIO Setup](docs/guide/MINIO_SETUP_GUIDE.md) - Local S3-compatible storage
 
 ### **Development Standards**
+
 - 📏 [Coding Standards](docs/rules/CODING_STANDARDS.md) - TypeScript/TSX conventions
 - 📝 [PLAN Rules](docs/rules/PLAN_RULE.md) - Project planning and documentation standards
 
 ### **Implementation Plans**
+
 - 🎨 [Frontend Plan](docs/plans/frontend/FRONTEND_PLAN.md) - Frontend implementation roadmap
 - ⚙️ [Backend Plan](docs/plans/backend/BACKEND_PLAN.md) - Backend implementation roadmap
 
 ### **AI Agent Instructions**
+
 - 🤖 [Planner Agent](/.github/instructions/planner.instructions.md) - Project coordination protocols
 - 🎨 [Frontend Agent](/.github/instructions/frontend.instructions.md) - Frontend development guidelines
 - ⚙️ [Backend Agent](/.github/instructions/backend.instructions.md) - Backend development guidelines
@@ -481,6 +492,7 @@ npm run test:coverage
 ### **Frontend Deployment**
 
 **Vercel (Recommended)**
+
 ```bash
 # Install Vercel CLI
 npm i -g vercel
@@ -490,6 +502,7 @@ vercel
 ```
 
 **Netlify**
+
 ```bash
 # Build command
 npm run build
@@ -505,6 +518,7 @@ dist
 See [Backend Deployment Guide](backend/docs/guide/DEPLOYMENT_GUIDE.md) for complete Railway setup instructions.
 
 **Manual VPS Deployment**
+
 ```bash
 # Build backend
 cd backend
@@ -519,9 +533,11 @@ pm2 start dist/server.js --name research-backend
 Ensure all required environment variables are set in your deployment platform:
 
 **Frontend:**
+
 - `VITE_API_BASE_URL` - Backend API URL
 
 **Backend:**
+
 - `DATABASE_URL` - PostgreSQL connection string (production)
 - `ENCRYPTION_KEY` - 32-character encryption key
 - `API_KEY` - API authentication key
@@ -533,21 +549,13 @@ Ensure all required environment variables are set in your deployment platform:
 
 ## Contributing
 
-We welcome contributions! Please follow these guidelines:
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details on:
 
-1. **Fork the repository**
-2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
-3. **Follow coding standards**: See [CODING_STANDARDS.md](docs/rules/CODING_STANDARDS.md)
-4. **Write meaningful commits**: Use [Conventional Commits](https://www.conventionalcommits.org/)
-5. **Test your changes**: Ensure all tests pass
-6. **Submit a Pull Request**: Provide clear description of changes
-
-### **Development Setup for Contributors**
-
-1. Read [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md) for architecture understanding
-2. Review [CODING_STANDARDS.md](docs/rules/CODING_STANDARDS.md) for code conventions
-3. Check [PLAN_RULE.md](docs/rules/PLAN_RULE.md) for project planning standards
-4. Follow domain-specific implementation plans in `docs/plans/`
+- Getting started with development
+- Branch naming conventions
+- Commit message format
+- Pull request process
+- Code style guidelines
 
 ---
 
