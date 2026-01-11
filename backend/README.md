@@ -5,7 +5,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue.svg)](https://www.typescriptlang.org/)
 [![Express](https://img.shields.io/badge/Express-4.21-lightgrey.svg)](https://expressjs.com/)
-[![Prisma](https://img.shields.io/badge/Prisma-6.16-2D3748.svg)](https://www.prisma.io/)
+[![Prisma](https://img.shields.io/badge/Prisma-6.19-2D3748.svg)](https://www.prisma.io/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
@@ -127,6 +127,7 @@ Research Space Backend is a production-ready Express.js API server that provides
 ### Data Flow
 
 **File Upload Flow:**
+
 ```
 1. Frontend → POST /api/files/presigned-url
 2. Backend generates presigned URL (S3)
@@ -136,6 +137,7 @@ Research Space Backend is a production-ready Express.js API server that provides
 ```
 
 **File Download Flow:**
+
 ```
 1. Frontend → POST /api/files/:id/download-url
 2. Backend validates file exists (Prisma)
@@ -219,6 +221,7 @@ curl http://localhost:3001/health
 ```
 
 Expected response:
+
 ```json
 {
   "success": true,
@@ -315,19 +318,22 @@ backend/
 ### Key Directories
 
 #### `/prisma`
+
 - **Purpose**: Database schema, migrations, and Prisma Client
 - **Migration Files**: Immutable SQL migration history
 - **Schema File**: Single source of truth for database structure
 
 #### `/src/controllers`
+
 - **Purpose**: HTTP request handling (Express route handlers)
 - **Responsibility**: Parse request → Call services → Format response
-- **Examples**: 
+- **Examples**:
   - `files.controller.ts`: 13 endpoints for file operations
   - `folders.controller.ts`: 6 endpoints for folder management
   - `storage.controller.ts`: 4 endpoints for storage configuration
 
 #### `/src/services`
+
 - **Purpose**: Business logic implementation
 - **Responsibility**: Database operations, external API calls, complex logic
 - **Examples**:
@@ -336,11 +342,13 @@ backend/
   - `s3Provider.service.ts`: AWS SDK S3 operations
 
 #### `/src/models`
+
 - **Purpose**: Prisma ORM wrapper models
 - **Responsibility**: Database queries, data validation, business rules
 - **Pattern**: Each model corresponds to a Prisma schema entity
 
 #### `/src/middleware`
+
 - **Purpose**: Express middleware functions
 - **Examples**:
   - `auth.middleware.ts`: Admin password verification
@@ -364,6 +372,7 @@ backend/
 | `LOG_LEVEL` | ❌ | `info` | Winston logging level |
 
 **Legend:**
+
 - ✅ Required for all environments
 - ⚠️ Required for production
 - ❌ Optional
@@ -399,16 +408,19 @@ openssl rand -hex 32
 ### Database URL Formats
 
 **SQLite (Development):**
+
 ```bash
 DATABASE_URL="file:./data/database.db"
 ```
 
 **PostgreSQL (Production):**
+
 ```bash
 DATABASE_URL="postgresql://user:password@localhost:5432/research_space?schema=public"
 ```
 
 **Railway PostgreSQL:**
+
 ```bash
 DATABASE_URL="${{Postgres.DATABASE_URL}}"
 ```
@@ -470,26 +482,31 @@ model Folder {
 ### Migration Commands
 
 **Generate Migration:**
+
 ```bash
 npx prisma migrate dev --name migration_name
 ```
 
 **Apply Migrations (Production):**
+
 ```bash
 npx prisma migrate deploy
 ```
 
 **Reset Database (Development Only):**
+
 ```bash
 npx prisma migrate reset
 ```
 
 **View Migration Status:**
+
 ```bash
 npx prisma migrate status
 ```
 
 **Generate Prisma Client:**
+
 ```bash
 npx prisma generate
 ```
@@ -497,6 +514,7 @@ npx prisma generate
 ### Database Administration
 
 **Open Prisma Studio:**
+
 ```bash
 npx prisma studio
 ```
@@ -554,11 +572,13 @@ http://localhost:3001
 ### Example Requests
 
 **Health Check:**
+
 ```bash
 curl http://localhost:3001/health
 ```
 
 **Configure Storage:**
+
 ```bash
 curl -X POST http://localhost:3001/api/storage/configure \
   -H "Content-Type: application/json" \
@@ -574,11 +594,13 @@ curl -X POST http://localhost:3001/api/storage/configure \
 ```
 
 **List Files:**
+
 ```bash
 curl "http://localhost:3001/api/files/list?page=1&limit=50&folderId=null"
 ```
 
 **Generate Upload URL:**
+
 ```bash
 curl -X POST http://localhost:3001/api/files/presigned-url \
   -H "Content-Type: application/json" \
@@ -595,6 +617,7 @@ curl -X POST http://localhost:3001/api/files/presigned-url \
 All endpoints return standardized JSON responses:
 
 **Success Response:**
+
 ```json
 {
   "success": true,
@@ -605,6 +628,7 @@ All endpoints return standardized JSON responses:
 ```
 
 **Error Response:**
+
 ```json
 {
   "success": false,
@@ -617,6 +641,7 @@ All endpoints return standardized JSON responses:
 ### Detailed API Documentation
 
 For complete API documentation with request/response examples, see:
+
 - **[API Reference](docs/misc/API_REFERENCE.md)** - Complete endpoint documentation
 - **[Example Requests](docs/example/)** - Curl examples and Postman collection
 
@@ -644,6 +669,7 @@ For complete API documentation with request/response examples, see:
 ### Development Workflow
 
 **1. Start Development Server:**
+
 ```bash
 npm run dev
 ```
@@ -651,11 +677,13 @@ npm run dev
 Server starts at `http://localhost:3001` with hot reload enabled.
 
 **2. Make Code Changes:**
+
 - Edit files in `src/`
 - Server auto-restarts on file changes
 - Check terminal for TypeScript errors
 
 **3. Test Changes:**
+
 ```bash
 # Health check
 curl http://localhost:3001/health
@@ -677,6 +705,7 @@ npx prisma generate
 ```
 
 **5. View Database:**
+
 ```bash
 npx prisma studio
 ```
@@ -686,12 +715,14 @@ Opens GUI at `http://localhost:5555`
 ### Code Style
 
 **TypeScript Configuration:**
+
 - **Strict Mode**: Enabled
 - **Target**: ES2022
 - **Module**: ESNext
 - **Path Aliases**: `@/*` → `src/*`
 
 **Linting:**
+
 ```bash
 npm run lint
 ```
@@ -699,6 +730,7 @@ npm run lint
 ### Adding New Features
 
 **1. Create Route:**
+
 ```typescript
 // src/routes/feature.routes.ts
 import { Router } from 'express';
@@ -712,6 +744,7 @@ export default router;
 ```
 
 **2. Create Controller:**
+
 ```typescript
 // src/controllers/feature.controller.ts
 import { Request, Response } from 'express';
@@ -726,6 +759,7 @@ export class FeatureController {
 ```
 
 **3. Create Service (if needed):**
+
 ```typescript
 // src/services/feature.service.ts
 export class FeatureService {
@@ -737,6 +771,7 @@ export class FeatureService {
 ```
 
 **4. Register Route:**
+
 ```typescript
 // src/server.ts
 import featureRoutes from './routes/feature.routes.js';
@@ -751,16 +786,19 @@ app.use('/api/features', featureRoutes);
 ### Production Build
 
 **1. Compile TypeScript:**
+
 ```bash
 npm run build
 ```
 
 **2. Verify Build:**
+
 ```bash
 ls -la dist/
 ```
 
 **3. Test Production Build:**
+
 ```bash
 NODE_ENV=production npm start
 ```
@@ -776,6 +814,7 @@ NODE_ENV=production npm start
 See comprehensive guide: **[Railway Deployment Guide](docs/guide/DEPLOYMENT_GUIDE.md)**
 
 **Key Steps:**
+
 1. Connect GitHub repository
 2. Add PostgreSQL database
 3. Set environment variables
@@ -783,6 +822,7 @@ See comprehensive guide: **[Railway Deployment Guide](docs/guide/DEPLOYMENT_GUID
 5. Deploy
 
 **Environment Variables for Railway:**
+
 ```bash
 DATABASE_URL=${{Postgres.DATABASE_URL}}
 ENCRYPTION_KEY=${{secret(32, "chars")}}
@@ -796,6 +836,7 @@ CORS_ORIGIN=https://your-frontend.vercel.app
 ### Docker Deployment
 
 **Dockerfile:**
+
 ```dockerfile
 FROM node:18-alpine
 
@@ -815,6 +856,7 @@ CMD ["npm", "start"]
 ```
 
 **Build & Run:**
+
 ```bash
 docker build -t research-space-backend .
 docker run -p 3001:3001 --env-file .env research-space-backend
@@ -847,42 +889,20 @@ docker run -p 3001:3001 --env-file .env research-space-backend
 
 ## Contributing
 
-### Development Setup
+We welcome contributions! Please see the [Contributing Guidelines](../CONTRIBUTING.md) in the project root for:
 
-1. Fork the repository
-2. Clone your fork:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/research-vite-app.git
-   cd research-vite-app/backend
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-4. Create `.env` from `.env.example`
-5. Setup database:
-   ```bash
-   npx prisma migrate dev
-   npx prisma generate
-   ```
-6. Start development server:
-   ```bash
-   npm run dev
-   ```
-
-### Contribution Guidelines
-
-- **Code Style**: Follow TypeScript strict mode
-- **Commits**: Use conventional commits (e.g., `feat:`, `fix:`, `docs:`)
-- **Testing**: Add tests for new features (when test suite is implemented)
-- **Documentation**: Update relevant docs with code changes
-- **Pull Requests**: Provide clear description of changes
+- Development setup instructions
+- Branch naming conventions
+- Commit message format (Conventional Commits)
+- Pull request guidelines
+- Code style requirements
 
 ### Reporting Issues
 
 Report bugs or request features via [GitHub Issues](https://github.com/PRATS-gits/research-vite-app/issues)
 
 Include:
+
 - Clear description
 - Steps to reproduce (for bugs)
 - Expected vs actual behavior
@@ -915,9 +935,26 @@ See [LICENSE](LICENSE) file for details.
 
 ## Changelog
 
+### Version 2.1.0 (2026-01-11)
+
+**📦 Dependency Updates:**
+
+- AWS SDK v3: 3.901.0 → 3.966.0
+- Prisma: 6.16.3 → 6.19.0
+- Helmet: 8.0.0 → 8.1.0
+- Winston: 3.17.0 → 3.19.0
+
+**📚 Documentation:**
+
+- Consolidated contribution guidelines to root CONTRIBUTING.md
+- Updated all version references in documentation
+
+---
+
 ### Version 1.0.0 (2025-10-05)
 
 **✨ Features:**
+
 - Prisma ORM integration (PostgreSQL/SQLite)
 - Multi-provider S3 storage support (AWS, R2, MinIO)
 - Presigned URL generation for direct S3 uploads
@@ -931,6 +968,7 @@ See [LICENSE](LICENSE) file for details.
 - Route auto-discovery utility
 
 **🔧 Infrastructure:**
+
 - TypeScript strict mode
 - Express.js 4.21
 - Prisma ORM 6.16
@@ -940,6 +978,7 @@ See [LICENSE](LICENSE) file for details.
 - Winston logging
 
 **📚 Documentation:**
+
 - Comprehensive README
 - Railway deployment guide
 - API reference documentation
@@ -949,4 +988,4 @@ See [LICENSE](LICENSE) file for details.
 
 **Built with ❤️ by Research Space Team**
 
-**Last Updated**: October 5, 2025
+**Last Updated**: January 11, 2026

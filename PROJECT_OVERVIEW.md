@@ -2,8 +2,8 @@
 
 **Comprehensive Architecture, Structure, and Technical Documentation Index**
 
-> **Last Updated:** October 5, 2025  
-> **Version:** 2.0  
+> **Last Updated:** January 11, 2026  
+> **Version:** 2.1  
 > **Status:** 🟢 Active Development  
 > **Type:** Full-Stack TypeScript Application
 
@@ -68,18 +68,18 @@
 
 | Category | Technology | Version | Purpose |
 |----------|-----------|---------|---------|
-| **Core Framework** | React | 19.2.0 | UI library with concurrent rendering |
+| **Core Framework** | React | 19.2.3 | UI library with concurrent rendering |
 | **Language** | TypeScript | 5.9.3 | Type-safe JavaScript superset |
-| **Build Tool** | Vite | 7.1.9 | Next-generation frontend tooling |
+| **Build Tool** | Vite | 7.3.1 | Next-generation frontend tooling |
 | **Styling** | Tailwind CSS | 4.1.14 | Utility-first CSS framework |
 | **UI Components** | Shadcn/UI | Latest | Accessible, customizable components |
 | **Component Primitives** | Radix UI | Latest | Unstyled, accessible components |
-| **State Management** | Zustand | 5.0.8 | Lightweight state management |
-| **Routing** | React Router DOM | 7.9.3 | Declarative routing with lazy loading |
+| **State Management** | Zustand | 5.0.9 | Lightweight state management |
+| **Routing** | React Router DOM | 7.12.0 | Declarative routing with lazy loading |
 | **Drag & Drop** | @dnd-kit | 6.3.1 | Accessible drag-and-drop toolkit |
 | **HTTP Client** | Fetch API | Native | HTTP requests to backend |
 | **Form Handling** | React Hooks | Native | Form state and validation |
-| **Icons** | Lucide React + Remixicon | 0.544.0 | Icon libraries |
+| **Icons** | Lucide React + Remixicon | 0.562.0 | Icon libraries |
 | **Notifications** | Sonner | 2.0.7 | Toast notifications |
 | **Charts** | Recharts | 3.2.1 | Composable charting library |
 | **Date Handling** | date-fns | 4.1.0 | Date utility functions |
@@ -93,17 +93,17 @@
 | **Runtime** | Node.js | 18+ | JavaScript runtime environment |
 | **Framework** | Express.js | 4.21.2 | Fast, unopinionated web framework |
 | **Language** | TypeScript | 5.7.2 | Type-safe backend development |
-| **ORM** | Prisma | 6.16.3 | Next-generation Node.js ORM |
+| **ORM** | Prisma | 6.19.0 | Next-generation Node.js ORM |
 | **Database (Dev)** | SQLite | 3.x | Lightweight SQL database |
 | **Database (Prod)** | PostgreSQL | 15+ | Production-grade SQL database |
-| **Storage SDK** | AWS SDK v3 | 3.901.0 | S3-compatible storage operations |
-| **Security** | Helmet | 8.0.0 | Security middleware for Express |
+| **Storage SDK** | AWS SDK v3 | 3.966.0 | S3-compatible storage operations |
+| **Security** | Helmet | 8.1.0 | Security middleware for Express |
 | **CORS** | cors | 2.8.5 | Cross-Origin Resource Sharing |
 | **Rate Limiting** | express-rate-limit | 7.5.1 | Request rate limiting |
 | **Validation** | Joi + Zod | 17.13.3 + 3.25.76 | Schema validation libraries |
 | **Encryption** | crypto (Node.js) | Native | AES-256-GCM credential encryption |
 | **Authentication** | JWT + bcryptjs | 9.0.2 + 2.4.3 | Token-based auth (planned) |
-| **Logging** | Winston | 3.17.0 | Flexible logging library |
+| **Logging** | Winston | 3.19.0 | Flexible logging library |
 | **Compression** | compression | 1.7.5 | Response compression middleware |
 | **Environment** | dotenv | 16.6.1 | Environment variable management |
 
@@ -203,6 +203,7 @@ Research Space implements a **three-tier architecture** with clear separation of
 ### **Data Flow**
 
 #### **File Upload Flow**
+
 ```
 1. User drags file to Library Page
 2. Frontend: useDragAndDrop hook → uploadQueueStore
@@ -219,6 +220,7 @@ Research Space implements a **three-tier architecture** with clear separation of
 ```
 
 #### **File Download Flow**
+
 ```
 1. User clicks file or "Download" in context menu
 2. Frontend: POST /api/files/:id/download-url
@@ -230,6 +232,7 @@ Research Space implements a **three-tier architecture** with clear separation of
 ```
 
 #### **Storage Configuration Flow**
+
 ```
 1. User fills S3 credentials form on Connections Page
 2. Frontend: POST /api/storage/configure { provider, credentials }
@@ -918,6 +921,7 @@ Folder 1───∞ File
 | DELETE | `/api/folders/:id` | Delete folder (recursive) | ✅ |
 
 For complete API documentation with request/response examples, see:
+
 - **High-level overview**: [`docs/guide/API_DOCUMENTATION.md`](docs/guide/API_DOCUMENTATION.md)
 - **Detailed reference**: [`backend/docs/guide/API_DOCUMENTATION.md`](backend/docs/guide/API_DOCUMENTATION.md)
 
@@ -1141,6 +1145,7 @@ npm run dev
 ```
 
 **Access the application:**
+
 - Frontend: `http://localhost:5173`
 - Backend API: `http://localhost:3001`
 
@@ -1194,6 +1199,6 @@ npm run test:coverage # Coverage report
 
 ---
 
-**Last Updated:** October 5, 2025  
+**Last Updated:** January 11, 2026  
 **Maintained by:** Research Space Development Team  
-**Version:** 2.0
+**Version:** 2.1
